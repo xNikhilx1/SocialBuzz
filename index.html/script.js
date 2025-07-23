@@ -62,3 +62,12 @@ function addComment(id) {
   input.value = "";
   renderPosts();
 }
+
+const deleteBtn = document.createElement('button');
+deleteBtn.textContent = 'Delete';
+deleteBtn.classList.add('delete-btn');
+deleteBtn.onclick = () => {
+  postDiv.remove(); 
+};
+postDiv.appendChild(deleteBtn);
+
