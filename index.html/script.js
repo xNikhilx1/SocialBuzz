@@ -51,6 +51,13 @@ function likePost(id) {
   post.likes++;
   renderPosts();
 }
+const deleteBtn = document.createElement("button");
+deleteBtn.textContent = "Delete";
+deleteBtn.classList.add("delete-btn");
+deleteBtn.onclick = () => {
+  postDiv.remove();
+};
+postDiv.appendChild(deleteBtn);
 
 function addComment(id) {
   const input = document.getElementById(`comment-${id}`);
@@ -63,11 +70,5 @@ function addComment(id) {
   renderPosts();
 }
 
-const deleteBtn = document.createElement('button');
-deleteBtn.textContent = 'Delete';
-deleteBtn.classList.add('delete-btn');
-deleteBtn.onclick = () => {
-  postDiv.remove(); 
-};
-postDiv.appendChild(deleteBtn);
+
 
