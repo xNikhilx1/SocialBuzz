@@ -22,6 +22,9 @@ Built with vanilla JavaScript, no frameworks
 HTML5
 CSS3
 JavaScript (no libraries or frameworks)
+##Author
+Nikhil Geddam
+GitHub: @xNikhilx1
 
 ## How to Run
 Clone the repository:
