@@ -28,9 +28,12 @@ function renderPosts() {
 
     postEl.innerHTML = `
       <div class="post-content">${post.content}</div>
-      <div class="actions">
-        <button onclick="likePost(${post.id})">Like (${post.likes})</button>
-      </div>
+<div class="actions">
+  <button onclick="likePost(${post.id})">Like (${post.likes})</button>
+  <!-- Add Delete button here, inside the actions div -->
+  <button onclick="deletePost(${post.id})" class="delete-btn">Delete</button>
+</div>
+
       <div class="comment-section">
         <input type="text" id="comment-${
           post.id
@@ -51,13 +54,6 @@ function likePost(id) {
   post.likes++;
   renderPosts();
 }
-const deleteBtn = document.createElement("button");
-deleteBtn.textContent = "Delete";
-deleteBtn.classList.add("delete-btn");
-deleteBtn.onclick = () => {
-  postDiv.remove();
-};
-postDiv.appendChild(deleteBtn);
 
 function addComment(id) {
   const input = document.getElementById(`comment-${id}`);
@@ -67,6 +63,10 @@ function addComment(id) {
   const post = posts.find((p) => p.id === id);
   post.comments.push(text);
   input.value = "";
+  renderPosts();
+}
+function deletePost(id) {
+  posts = posts.filter((post) => post.id !== id);
   renderPosts();
 }
 
